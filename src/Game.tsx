@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react'
 import getWord from './words'
 
-const INTERVAL = 15
-
 const initialWord = getWord()
 
 export default function Game({
   participants,
   wordParticipant,
+  secondsWord,
+  onReset,
 }: {
   participants: string[]
   wordParticipant: number
+  secondsWord: number
+  onReset: () => any
 }) {
   const [word, setWord] = useState(initialWord)
   const [participant, setParticipant] = useState(0)
-  const [timer, setTimer] = useState(INTERVAL)
+  const [timer, setTimer] = useState(secondsWord)
   const [words, setWords] = useState<string[]>([])
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function Game({
       if (timer === 1) {
         setWords([...words, word])
         setWord(getWord())
-        setTimer(INTERVAL)
+        setTimer(secondsWord)
 
         setParticipant(
           participant === participants.length - 1 ? 0 : participant + 1,
@@ -52,15 +54,7 @@ export default function Game({
           {words.join(', ')}
         </div>
         <div>
-          <button
-            onClick={() => {
-              setWords([])
-              setWord(getWord())
-              setParticipant(0)
-              setTimer(INTERVAL)
-            }}>
-            Play again!
-          </button>
+          <button onClick={onReset}>Play again!</button>
         </div>
       </div>
     )

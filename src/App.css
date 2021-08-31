@@ -22,9 +22,12 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: auto;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   width: 100%;
   text-align: center;
 }
@@ -44,8 +47,13 @@ h1 {
   margin-bottom: 40px;
 }
 
+ol {
+  width: 100%;
+}
+
 li {
   margin: 0;
+  width: 100%;
 }
 
 button,
@@ -53,7 +61,6 @@ input {
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
   width: 100%;
-  min-width: 300px;
   border-radius: 6px;
   border: 1px solid #333333;
   background-color: transparent;
@@ -62,7 +69,19 @@ input {
 
 button {
   background-color: blue;
+  min-width: 300px;
   color: white;
+}
+
+button.small {
+  width: initial;
+  min-width: initial;
+  padding: 2px 10px;
+  font-size: 35px;
+}
+
+button:disabled {
+  opacity: 0.1;
 }
 
 .game {
