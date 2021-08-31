@@ -13,15 +13,18 @@ export default function Game({
   secondsWord: number
   onReset: () => any
 }) {
-  const [word, setWord] = useState(getWord())
+  const [word, setWord] = useState('')
   const [participant, setParticipant] = useState(0)
   const [timer, setTimer] = useState(secondsWord)
   const [words, setWords] = useState<string[]>([])
-  const [shuffledParticipants, setShuffledParticipant] = useState(
-    shuffle(participants),
-  )
+  const [shuffledParticipants, setShuffledParticipant] = useState(participants)
 
   const totalWords = wordParticipant * participants.length
+
+  useEffect(() => {
+    setWord(getWord())
+    setShuffledParticipant(shuffle(participants))
+  }, [participants])
 
   useEffect(() => {
     if (words.length === totalWords) {
