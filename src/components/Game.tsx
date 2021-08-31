@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import { shuffle } from 'lodash'
 import getWord from '../words'
 
-const initialWord = getWord()
-
 export default function Game({
   participants,
   wordParticipant,
@@ -15,7 +13,7 @@ export default function Game({
   secondsWord: number
   onReset: () => any
 }) {
-  const [word, setWord] = useState(initialWord)
+  const [word, setWord] = useState(getWord())
   const [participant, setParticipant] = useState(0)
   const [timer, setTimer] = useState(secondsWord)
   const [words, setWords] = useState<string[]>([])
