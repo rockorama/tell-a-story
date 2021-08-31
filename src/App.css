@@ -63,13 +63,13 @@ input {
   font-size: 40px;
   width: 100%;
   border-radius: 6px;
-  border: 1px solid #333333;
+  border: 1px solid red;
   background-color: transparent;
   padding: 10px;
 }
 
 button {
-  background-color: blue;
+  background-color: tomato;
   min-width: 300px;
   color: white;
 }
@@ -141,7 +141,7 @@ button:disabled {
 
 .game .progress {
   height: 10px;
-  background-color: rgb(104, 104, 173);
+  background-color: rgb(243, 163, 149);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -149,12 +149,12 @@ button:disabled {
 }
 .game .progress-inner {
   height: 10px;
-  background-color: blue;
+  background-color: tomato;
   transition: all 0.3s;
 }
 
 .game .close {
   position: fixed;
-  right: 0;
-  top: 0;
+  right: 0.2vw;
+  top: 0.2vw;
 }
