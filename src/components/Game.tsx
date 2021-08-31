@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { shuffle } from 'lodash'
 import getWord from '../words'
 
 const initialWord = getWord()
@@ -18,9 +19,14 @@ export default function Game({
   const [participant, setParticipant] = useState(0)
   const [timer, setTimer] = useState(secondsWord)
   const [words, setWords] = useState<string[]>([])
+  const [shuffledParticipants, setShuffledParticipant] = useState(
+    shuffle(participants),
+  )
+
+  const totalWords = wordParticipant * participants.length
 
   useEffect(() => {
-    if (words.length === wordParticipant * participants.length) {
+    if (words.length === totalWords) {
       setTimer(0)
       return
     }
@@ -30,6 +36,10 @@ export default function Game({
         setWords([...words, word])
         setWord(getWord())
         setTimer(secondsWord)
+
+        if (participants.length - 1 === participant) {
+          setShuffledParticipant(shuffle(participants))
+        }
 
         setParticipant(
           participant === participants.length - 1 ? 0 : participant + 1,
@@ -44,7 +54,7 @@ export default function Game({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer])
 
-  if (words.length >= wordParticipant * participants.length) {
+  if (words.length >= totalWords) {
     return (
       <div className="game">
         <div className="word">the end ;-)</div>
@@ -62,9 +72,26 @@ export default function Game({
 
   return (
     <div className="game">
+      <div className="close">
+        <button onClick={onReset} className="small">
+          X
+        </button>
+      </div>
       <div className="word">{word}</div>
-      <div className="participant">{participants[participant]}</div>
+      <div className="participant">{shuffledParticipants[participant]}</div>
       <div className="timer">{timer}</div>
+      <div className="progress">
+        <div
+          className="progress-inner"
+          style={{
+            width: `${
+              ((words.length * secondsWord + (secondsWord - timer)) /
+                (totalWords * secondsWord)) *
+              100
+            }%`,
+          }}
+        />
+      </div>
     </div>
   )
 }
