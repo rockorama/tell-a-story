@@ -69,6 +69,7 @@ input {
 }
 
 button {
+  cursor: pointer;
   background-color: tomato;
   min-width: 300px;
   color: white;
