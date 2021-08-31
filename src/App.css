@@ -97,6 +97,7 @@ button:disabled {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: auto;
 }
 
 .game .word {
