@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import getWord from './words'
+import getWord from '../words'
 
 const initialWord = getWord()
 

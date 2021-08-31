@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Form from 'formact'
 
-import './App.css'
 import TextField from './components/TextField'
-import Game from './Game'
 import SubmitButton from './components/SubmitButton'
+import Game from './components/Game'
+
+import './App.css'
 
 export default function App() {
   const [started, setStarted] = useState<{
@@ -15,6 +16,10 @@ export default function App() {
   const [participants, setParticipants] = useState<string[]>([])
 
   const field = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    field.current?.focus()
+  }, [field])
 
   if (!started) {
     return (
