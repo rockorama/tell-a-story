@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import getWord from './words'
 
-const INTERVAL = 3
+const INTERVAL = 15
 
 const initialWord = getWord()
 
