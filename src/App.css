@@ -1,38 +1,114 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1 {
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.participants {
+  margin-bottom: 40px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.no-participants {
+  margin-bottom: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+li {
+  margin: 0;
+}
+
+button,
+input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  width: 100%;
+  min-width: 300px;
+  border-radius: 6px;
+  border: 1px solid #333333;
+  background-color: transparent;
+  padding: 10px;
+}
+
+button {
+  background-color: blue;
+  color: white;
+}
+
+.game {
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.game .word {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12vw;
+}
+
+.game .participant {
+  font-size: 5vw;
+  margin-bottom: 10vw;
+  text-align: center;
+}
+.game .words {
+  font-size: 2vw;
+  margin-bottom: 10vw;
+  text-align: center;
+}
+
+.game .timer {
+  position: fixed;
+  right: 3vw;
+  bottom: 3vw;
+  font-size: 4vw;
+  background-color: tomato;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  width: 6vw;
+  height: 6vw;
+  border-radius: 6vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
