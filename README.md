@@ -1,5 +1,7 @@
 # Tell a Story!
 
+Play the game at https://tellastory-game.web.app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
